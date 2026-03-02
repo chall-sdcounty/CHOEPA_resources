@@ -32,18 +32,38 @@ font_add(family = "Times New Roman",
 # -----------------------------------------
 # function to use brand colors
 # -----------------------------------------
+
 use_county_brand_colors <- function(palette = brand_colors) {
-  scale_colour_discrete <<- function(...) ggplot2::scale_color_manual(values = unname(palette), ...)
-  scale_color_discrete  <<- function(...) ggplot2::scale_color_manual(values = unname(palette), ...)
-  scale_fill_discrete   <<- function(...) ggplot2::scale_fill_manual(values = unname(palette), ...)
-  message("Global discrete scales now use brand_colors.")
+  stopifnot(is.character(palette), length(palette) >= 1)
+  
+  # Use unname() to avoid "No shared levels found..." warnings
+  vals <- unname(palette)
+  
+  assign("scale_colour_discrete",
+         function(...) ggplot2::scale_color_manual(values = vals, ...),
+         envir = .GlobalEnv)
+  
+  assign("scale_color_discrete",
+         function(...) ggplot2::scale_color_manual(values = vals, ...),
+         envir = .GlobalEnv)
+  
+  assign("scale_fill_discrete",
+         function(...) ggplot2::scale_fill_manual(values = vals, ...),
+         envir = .GlobalEnv)
+  
+  message("✅ Global discrete scales set: color/fill will use your brand_colors by default in this session.")
 }
 
-# function to reset to original colors
 reset_county_brand_colors <- function() {
-  rm(list = c("scale_colour_discrete","scale_color_discrete","scale_fill_discrete"), envir = .GlobalEnv)
-  message("Discrete scales reset to ggplot2 defaults (restart R if needed).")
+  # Remove global overrides to reveal ggplot2’s originals again
+  for (nm in c("scale_colour_discrete", "scale_color_discrete", "scale_fill_discrete")) {
+    if (exists(nm, envir = .GlobalEnv, inherits = FALSE)) {
+      rm(list = nm, envir = .GlobalEnv)
+    }
+  }
+  message("↩️ Discrete scales reset to ggplot2 defaults. (You may need to re-run plots.)")
 }
+
 
 # -----------------------------------------
 # Function to Define County theme (fonts, typography etc.)
