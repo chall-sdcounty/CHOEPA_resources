@@ -97,7 +97,6 @@ theme_county <- function(
   theme_minimal(base_size = base_size, base_family = base_family) +
     theme(
       text = element_text(family = base_family),
-      panel.grid.major.y = element_blank()
       plot.margin = margin(t = 8, r = 12, b = 8, l = 12),
       plot.title.position = "panel",
       plot.title   = element_text(face = "bold", hjust = 0.5, size = base_size * 1.4, margin = margin(b = 6)),
