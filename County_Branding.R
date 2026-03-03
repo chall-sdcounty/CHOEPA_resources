@@ -60,15 +60,15 @@ use_county_brand_colors <- function(palette = brand_colors) {
   vals <- unname(palette)
   
   assign("scale_colour_discrete",
-         function(...) ggplot2::scale_color_manual(values = vals, ...),
+         function(...) scale_color_manual(values = vals, ...),
          envir = .GlobalEnv)
   
   assign("scale_color_discrete",
-         function(...) ggplot2::scale_color_manual(values = vals, ...),
+         function(...) scale_color_manual(values = vals, ...),
          envir = .GlobalEnv)
   
   assign("scale_fill_discrete",
-         function(...) ggplot2::scale_fill_manual(values = vals, ...),
+         function(...) scale_fill_manual(values = vals, ...),
          envir = .GlobalEnv)
   
   message("✅ Global discrete scales set: color/fill will use your brand_colors by default in this session.")
@@ -94,29 +94,34 @@ theme_county <- function(
     grid_color  = "#E6E6E6",
     legend_pos  = "top"
 ) {
-  ggplot2::theme_minimal(base_size = base_size, base_family = base_family) +
-    ggplot2::theme(
-      text = ggplot2::element_text(family = base_family),
-      plot.title.position = "plot",
-      plot.title   = ggplot2::element_text(face = "bold", size = base_size * 1.4, margin = ggplot2::margin(b = 6)),
-      plot.subtitle = ggplot2::element_text(size = base_size * 1.1, margin = ggplot2::margin(b = 10)),
-      plot.caption  = ggplot2::element_text(color = "gray40", size = base_size * 0.9, margin = ggplot2::margin(t = 8)),
-      axis.title.x  = ggplot2::element_text(margin = ggplot2::margin(t = 6)),
-      axis.title.y  = ggplot2::element_text(margin = ggplot2::margin(r = 6)),
-      axis.text     = ggplot2::element_text(color = "gray20"),
-      panel.grid.major.x = ggplot2::element_blank(),
-      panel.grid.minor.x = ggplot2::element_blank(),
-      panel.grid.minor.y = ggplot2::element_blank(),
-      panel.grid.major.y = ggplot2::element_line(color = grid_color, linewidth = 0.5),
-      plot.background  = ggplot2::element_rect(fill = "white", color = NA),
-      panel.background = ggplot2::element_rect(fill = "white", color = NA),
+  theme_minimal(base_size = base_size, base_family = base_family) +
+    theme(
+      text = element_text(family = base_family),
+      panel.grid.major.y = element_blank()
+      plot.margin = margin(t = 8, r = 12, b = 8, l = 12),
+      plot.title.position = "panel",
+      plot.title   = element_text(face = "bold", hjust = 0.5, size = base_size * 1.4, margin = margin(b = 6)),
+      plot.subtitle = element_text(size = base_size * 1.1,  hjust = 0.5, margin = margin(b = 10)),
+      plot.caption  = element_text(color = "gray40", size = base_size * 0.9, margin = margin(t = 8)),
+      axis.ticks.x = element_blank(),
+      axis.line.x = element_blank(),
+      axis.text.x = element_blank(),
+      axis.title.x  = element_text(margin = margin(t = 6)),
+      axis.title.y  = element_text(margin = margin(r = 6)),
+      panel.grid.major.x = element_blank(),
+      panel.grid.minor.x = element_blank(),
+      panel.grid.minor.y = element_blank(),
+      panel.grid.major.y = element_blank(),
+      plot.background  = element_rect(fill = "white", color = NA),
+      panel.background = element_rect(fill = "white", color = NA),
       panel.spacing    = grid::unit(1, "lines"),
       legend.position  = legend_pos,
-      legend.title     = ggplot2::element_text(face = "bold"),
+      legend.title = element_blank(),
       legend.key.width = grid::unit(14, "pt"),
-      legend.text      = ggplot2::element_text(size = base_size * 0.95),
-      strip.background = ggplot2::element_rect(fill = "#F7F7F7", color = NA),
-      strip.text       = ggplot2::element_text(face = "bold")
+      legend.key.spacing.x = unit(14, "pt"),
+      legend.text      = element_text(size = base_size * 0.95),
+      strip.background = element_rect(fill = "#F7F7F7", color = NA),
+      strip.text       = element_text(face = "bold")
     )
 }
 
