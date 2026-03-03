@@ -29,7 +29,7 @@ brand_colors <- c(
   "GreenGrad2"  = "#B4C98A",
   "GreenGrad3"  = "#8FA861",
   "GreenGrad4"  = "#67823A",
-  "GreenGrad5"  = "#405226",
+  "GreenGrad5"  = "#405226"
   
 )
 
