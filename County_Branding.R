@@ -13,21 +13,41 @@ library(ggtext)  # optional: rich text titles, superscripts, spans
 # Define brand palette and font
 # -----------------------------------------
 brand_colors <- c(
-  "DarkBlue"   = "#003087",
-  "LightBlue"  = "#00B5E2",
-  "DarkGreen"  = "#67823A",
-  "LightGreen" = "#A9C23F",
-  "Orange"     = "#FF9E18",
-  "Peach"      = "#F3CFB3",
-  "DarkGray"   = "#545859"
+  "DarkBlue"    = "#003087",
+  "LightBlue"   = "#00B5E2",
+  "DarkGreen"   = "#67823A",
+  "LightGreen"  = "#A9C23F",
+  "Orange"      = "#FF9E18",
+  "Peach"       = "#F3CFB3",
+  "DarkGray"    = "#545859", 
+  "BlueGrad1"   = "#B6C7E4", 
+  "BlueGrad2"   = "#6E91C7",
+  "BlueGrad3"   = "#2B58A8",
+  "BlueGrad4"   = "#003087",
+  "BlueGrad5"   = "#001E5A",
+  "GreenGrad1"  = "#D8EAB4", 
+  "GreenGrad2"  = "#B4C98A",
+  "GreenGrad3"  = "#8FA861",
+  "GreenGrad4"  = "#67823A",
+  "GreenGrad5"  = "#405226",
+  
 )
 
 # add Times New Roman font
-font_add(family = "Times New Roman",
-         regular = "C:/Windows/Fonts/times.ttf",
-         bold    = "C:/Windows/Fonts/timesbd.ttf",
-         italic  = "C:/Windows/Fonts/timesi.ttf",
-         bolditalic = "C:/Windows/Fonts/timesbi.ttf")
+
+font_add(
+  family     = "Times New Roman",
+  regular    = "C:/Windows/Fonts/times.ttf",
+  bold       = "C:/Windows/Fonts/timesbd.ttf",
+  italic     = "C:/Windows/Fonts/timesi.ttf",
+  bolditalic = "C:/Windows/Fonts/timesbi.ttf"
+)
+
+# 2) Activate showtext (must be ON before plotting)
+showtext_auto(enable = TRUE)
+# Optional: better text quality for saved images
+showtext_opts(dpi = 300)
+
 
 # -----------------------------------------
 # function to use brand colors
