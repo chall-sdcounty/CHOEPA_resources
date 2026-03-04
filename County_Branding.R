@@ -92,19 +92,22 @@ theme_county <- function(
     base_size   = 12,
     base_family = "Times New Roman",
     grid_color  = "#E6E6E6",
-    legend_pos  = "top"
+    legend_pos  = "none"
 ) {
   theme_minimal(base_size = base_size, base_family = base_family) +
     theme(
       text = element_text(family = base_family),
-      plot.margin = margin(t = 8, r = 12, b = 8, l = 12),
-      plot.title.position = "panel",
-      plot.title   = element_text(face = "bold", hjust = 0.5, size = base_size * 1.4, margin = margin(b = 6)),
-      plot.subtitle = element_text(size = base_size * 1.1,  hjust = 0.5, margin = margin(b = 10)),
+      plot.margin = margin(t = 8, r = 15, b = 8, l = 5),
+      plot.title.position = "plot",
+      plot.title   = element_text(face = "bold", hjust = 0.5, size = base_size * 1.1, margin = margin(b = 2)),
+      plot.subtitle = element_text(face = "italic", size = base_size * 0.9,  hjust = 0.5, margin = margin(b = 0)),
       plot.caption  = element_text(color = "gray40", size = base_size * 0.9, margin = margin(t = 8)),
       axis.ticks.x = element_blank(),
+      axis.ticks.y = element_blank(),
+      axis.ticks.length = unit(0, "pt"),
       axis.line.x = element_blank(),
       axis.text.x = element_blank(),
+      axis.text.y   = element_text(hjust = 1, margin = margin(r = -5, l = 0)),  # right-justify, zero gap
       axis.title.x  = element_text(margin = margin(t = 6)),
       axis.title.y  = element_text(margin = margin(r = 6)),
       panel.grid.major.x = element_blank(),
