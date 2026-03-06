@@ -101,13 +101,13 @@ theme_county <- function(
       plot.title.position = "plot",
       plot.title   = element_text(face = "bold", hjust = 0.5, size = base_size * 1.1, margin = margin(b = 2)),
       plot.subtitle = element_text(face = "italic", size = base_size * 0.9,  hjust = 0.5, margin = margin(b = 0)),
-      plot.caption  = element_text(color = "gray40", size = base_size * 0.9, margin = margin(t = 8)),
+      plot.caption  = element_text(size = base_size * 0.9, margin = margin(t = 8)),
       axis.ticks.x = element_blank(),
       axis.ticks.y = element_blank(),
       axis.ticks.length = unit(0, "pt"),
       axis.line.x = element_blank(),
-      axis.text.x = element_blank(),
-      axis.text.y   = element_text(hjust = 1, margin = margin(r = -5, l = 0)),  # right-justify, zero gap
+      axis.text.x = element_blank(color = "black"),
+      axis.text.y   = element_text(color = "black", hjust = 1, margin = margin(r = -5, l = 0)),  # right-justify, zero gap
       axis.title.x  = element_text(margin = margin(t = 6)),
       axis.title.y  = element_text(margin = margin(r = 6)),
       panel.grid.major.x = element_blank(),
