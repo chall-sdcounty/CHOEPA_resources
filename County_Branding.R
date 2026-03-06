@@ -106,7 +106,7 @@ theme_county <- function(
       axis.ticks.y = element_blank(),
       axis.ticks.length = unit(0, "pt"),
       axis.line.x = element_blank(),
-      axis.text.x = element_blank(color = "black"),
+      axis.text.x = element_text(color = "black"),
       axis.text.y   = element_text(color = "black", hjust = 1, margin = margin(r = -5, l = 0)),  # right-justify, zero gap
       axis.title.x  = element_text(margin = margin(t = 6)),
       axis.title.y  = element_text(margin = margin(r = 6)),
