@@ -97,7 +97,7 @@ theme_county <- function(
   theme_minimal(base_size = base_size, base_family = base_family) +
     theme(
       text = element_text(family = base_family),
-      plot.margin = margin(t = 8, r = 15, b = 8, l = 5),
+      plot.margin = margin(t = 8, r = 18, b = 8, l = 8),
       plot.title.position = "plot",
       plot.title   = element_text(face = "bold", hjust = 0.5, size = base_size * 1, margin = margin(b = 2)),
       plot.subtitle = element_text(face = "italic", size = base_size * 0.8,  hjust = 0.5, margin = margin(b = 0)),
